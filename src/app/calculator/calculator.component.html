@@ -1,0 +1,94 @@
+<div class="calculator-container">
+  <div class="calculator">
+    <div class="display">
+      <div class="last-operation">{{ lastOperation }} <span class="memory-indicator">{{ memoryDisplay }}</span> </div>
+      <div class="current-value">{{ display }}</div>
+    </div>
+
+    <div class="mode-toggle">
+      <button (click)="toggleScientificMode()">
+        {{ isScientificMode ? 'Basic Mode' : 'Scientific Mode' }}
+      </button>
+    </div>
+
+    <div class="keypad">
+      <div class="buttons" *ngIf="!isScientificMode">
+
+        <button class="btn memory-indicator" (click)="memoryAdd()">M+</button>
+        <button class="btn memory-indicator" (click)="memorySubtract()">M-</button>
+        <button class="btn memory-indicator" (click)="memoryStore()">MS</button>
+        <button id="btn-backSpace" class="btn function" >⌫</button>
+
+        <button id="btn-percentage" class="btn function" (click)="percentage()">%</button>
+        <button id="btn-clear-entry" class="btn clear-indicator" (click)="clearEntry()">CE</button>
+        <button id="btn-clear" class="btn clear-indicator" (click)="clear()">C</button>
+        <button id="btn-divide" class="btn operator" (click)="performOperation('÷')">÷</button>
+
+        <button id="btn-7" class="btn"(click)="inputDigit('7')">7</button>
+        <button id="btn-8" class="btn"(click)="inputDigit('8')">8</button>
+        <button id="btn-9" class="btn"(click)="inputDigit('9')">9</button>
+        <button id="btn-multiply" class="btn operator" (click)="performOperation('*')">x</button>
+
+        <button id="btn-4" class="btn"(click)="inputDigit('4')">4</button>
+        <button id="btn-5" class="btn"(click)="inputDigit('5')">5</button>
+        <button id="btn-6" class="btn"(click)="inputDigit('6')">6</button>
+        <button id="btn-subtract" class="btn operator" (click)="performOperation('-')">-</button>
+
+        <button id="btn-1" class="btn" (click)="inputDigit('1')">1</button>
+        <button id="btn-2" class="btn" (click)="inputDigit('2')">2</button>
+        <button id="btn-3" class="btn" (click)="inputDigit('3')">3</button>
+        <button  id="btn-add" class="btn operator" (click)="performOperation('+')">+</button>
+
+        <button id="btn-toggle-sign" class="btn function" (click)="toggleSign()">+/-</button>
+        <button id="btn-0" class="btn" (click)="inputDigit('0')">0</button>
+        <button id="btn-decimal" class="btn function" (click)="inputDecimal()">.</button>
+        <button id="btn-equals" class="btn equal" (click)="calculate()">=</button>
+      </div>
+
+      <div class="buttons-scientific" *ngIf="isScientificMode">
+
+        <button class="btn scientific-indicator" (click)="scientificFunction('sqrt')">√</button>
+        <button class="btn memory-indicator" (click)="memoryAdd()">M+</button>
+        <button class="btn memory-indicator" (click)="memorySubtract()">M-</button>
+        <button class="btn memory-indicator" (click)="memoryStore()">MS</button>
+        <button id="btn-backSpace" class="btn function" >⌫</button>
+
+        <button class="btn scientific-indicator" (click)="performOperation('^')">x^y</button>
+        <button id="btn-percentage" class="btn function" (click)="percentage()">%</button>
+        <button id="btn-clear-entry" class="btn clear-indicator" (click)="clearEntry()">CE</button>
+        <button id="btn-clear" class="btn clear-indicator" (click)="clear()">C</button>
+        <button id="btn-divide" class="btn operator" (click)="performOperation('÷')">÷</button>
+
+        <button class="btn scientific-indicator" (click)="scientificFunction('sin')">sin</button>
+        <button id="btn-7" class="btn"(click)="inputDigit('7')">7</button>
+        <button id="btn-8" class="btn"(click)="inputDigit('8')">8</button>
+        <button id="btn-9" class="btn"(click)="inputDigit('9')">9</button>
+        <button id="btn-multiply" class="btn operator" (click)="performOperation('*')">x</button>
+
+        <button class="btn scientific-indicator" (click)="scientificFunction('cos')">cos</button>
+        <button id="btn-4" class="btn"(click)="inputDigit('4')">4</button>
+        <button id="btn-5" class="btn"(click)="inputDigit('5')">5</button>
+        <button id="btn-6" class="btn"(click)="inputDigit('6')">6</button>
+        <button id="btn-subtract" class="btn operator" (click)="performOperation('-')">-</button>
+
+        <button class="btn scientific-indicator" (click)="scientificFunction('tan')">tan</button>
+        <button id="btn-1" class="btn" (click)="inputDigit('1')">1</button>
+        <button id="btn-2" class="btn" (click)="inputDigit('2')">2</button>
+        <button id="btn-3" class="btn" (click)="inputDigit('3')">3</button>
+        <button  id="btn-add" class="btn operator" (click)="performOperation('+')">+</button>
+
+        <button class="btn scientific-indicator" (click)="scientificFunction('log')">log</button>
+        <button id="btn-toggle-sign" class="btn function" (click)="toggleSign()">+/-</button>
+        <button id="btn-0" class="btn" (click)="inputDigit('0')">0</button>
+        <button id="btn-decimal" class="btn function" (click)="inputDecimal()">.</button>
+        <button id="btn-equals" class="btn equal" (click)="calculate()">=</button>
+        <button class="btn scientific-indicator" (click)="scientificFunction('ln')">ln</button>
+        <button id="btn-reciprocal" class="btn scientific-indicator" (click)="reciprocal()"> ¹⁄ₓ</button>
+        <button id="btn-square" class="btn scientific-indicator" (click)="square()">x²</button>
+        <button id="btn-sqrt" class="btn scientific-indicator" (click)="squareRoot()">²√x</button>
+        <button id="btn-ten-power'" class="btn scientific-indicator" (click)="tenPowerX()">10ˣ</button>
+
+      </div>
+    </div>
+  </div>
+</div>
